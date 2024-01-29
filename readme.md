@@ -65,12 +65,6 @@ After downloading, activate the plugin through the WordPress dashboard or using 
 wp plugin activate wpcli-local-staging
 ```
 
-Navigate to the WPCLI Staging settings page within the WordPress dashboard to configure the plugin according to your hosting environment and preferences.
-
-Certainly! Here's a new section for your `readme.md` focusing on troubleshooting, specifically addressing the database host configuration:
-
----
-
 ## Troubleshooting
 
 ### Issue with Connecting to the Database
