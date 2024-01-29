@@ -65,6 +65,17 @@ After downloading, activate the plugin through the WordPress dashboard or using 
 wp plugin activate wpcli-local-staging
 ```
 
+Next, head into wp-admin->Settings->WP-CLI Staging and proceed to fill out your remote SSH details:
+
+![image](https://github.com/atwellpub/wpcli-staging/assets/2002207/3e87c4d0-71b2-4108-98f2-31e74ee31c31)
+
+## Usage 
+
+Once the plugin has been installed, activated, and setup, the command line with wpcli enabled can be opened from your Local UI by accessing the site inside and clicking the "Open site shell" button. Once the terminal is launched then the commands can be ran:
+
+![image](https://github.com/atwellpub/wpcli-staging/assets/2002207/17b36eeb-2980-4886-bfdc-28aaa987e587)
+
+
 ## Troubleshooting
 
 ### Issue with Connecting to the Database
