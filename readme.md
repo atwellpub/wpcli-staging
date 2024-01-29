@@ -1,4 +1,4 @@
-# WPCLI Staging for WordPress
+# WP-CLI Staging for WordPress
 
 ## Introduction to WP-CLI Staging
 
@@ -6,7 +6,7 @@ WP-CLI Staging plugin extends wp-cli with staging managmeent tools for a local W
 
 ## Commands
 
-WPCLI Staging provides a suite of commands accessible via WP-CLI, enabling developers to efficiently manage their local staging environment:
+WP-CLI Staging provides a suite of commands accessible via WP-CLI, enabling developers to efficiently manage their local staging environment:
 
 - `wp staging backup`: Creates a backup of the current local database.
 - `wp staging rollback`: Reverts the local database to the last backup, facilitating easy undo of recent changes.
@@ -16,7 +16,7 @@ WPCLI Staging provides a suite of commands accessible via WP-CLI, enabling devel
 
 ## Current Limitations and Requirements
 
-WPCLI Staging focuses on enhancing local development workflows with specific considerations:
+WP-CLI Staging focuses on enhancing local development workflows with specific considerations:
 
 - **Database-centric**: The tool currently supports only pulling the database from the production environment; it does not push changes from staging to production.
 - **Cloudways Optimized**: While designed with Cloudways hosting in mind, the plugin settings may require adjustments to work seamlessly with other hosting providers.
@@ -29,7 +29,7 @@ The development of WPCLI Staging was inspired by our use of WP Engine's Local fo
 
 ## Disclaimer and Safety
 
-Cloning a production environment to a local environement could cause issues with processes like e-commerce subscriptions. Please consider taking additional cautions like:
+Cloning a production environment to a local environment could cause issues with processes like e-commerce subscriptions. Please consider taking additional cautions like:
 
 Adding the following to your wp-config.php to signal to plugins that the local environment is a testing environment and disabling the cronjob to protect against unwanted upkeep routines:
 
@@ -41,7 +41,7 @@ define( 'WP_LOCAL_DEV', true );
 
 Also consider using [Automattic's Safety-Net Plugin](https://github.com/a8cteam51/safety-net) for scrubbing/anonymizing/managing sensitive data.
 
-## What is WP CLI?
+## What is WP-CLI?
 
 WP-CLI is the official command-line tool for interacting with and managing WordPress sites. It provides a set of command-line tools to manage WordPress installations, allowing developers to update plugins, configure multisite installations, and much more, without using a web browser.
 
