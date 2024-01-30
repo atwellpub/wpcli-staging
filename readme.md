@@ -124,7 +124,7 @@ If you find WP-CLI Staging helpful, here's how you can support the asset's devel
 
    - Twitter: Tag [@atwellpub](https://twitter.com/atwellpub) and use the hashtag #WPCLIStaging to share how the plugin has helped you or your team.
 
-   - LinkedIn: Connect and share your thoughts with [Hudson Atwell](https://www.linkedin.com/in/hudson-atwell/) on LinkedIn. 
+   - LinkedIn: Connect and share your thoughts with [Hudson Atwell](https://www.linkedin.com/in/hudsonatwell/) on LinkedIn. 
 
 - **Hire from Codeable**: [Codeable.io](https://codeable.io/?ref=4yHGV) offers pre-vetted senior WordPress experts for any type of WordPress project. None too big or too small.
 
