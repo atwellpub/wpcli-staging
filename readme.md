@@ -2,7 +2,7 @@
 
 ## Introduction to WP-CLI Staging
 
-WP-CLI Staging plugin extends wp-cli with staging managmeent tools for a local WordPress instance. Currentnly it provides the ability to import and synchronize remote database (production) into a local database (staging) as well as provides other utiltieis such as quick backups, restorations, rollbacks and rollforwards.
+WP-CLI Staging plugin extends WP-CLI with staging management tools for a local WordPress instance. Currently, it provides the ability to import and synchronize remote database (production) into a local database (staging) as well as provides other utilities such as quick backups, restorations, rollbacks and rollforwards.
 
 ## Commands
 
@@ -16,16 +16,16 @@ WP-CLI Staging provides a suite of commands accessible via WP-CLI, enabling deve
 
 ## Current Limitations and Requirements
 
-WP-CLI Staging focuses on enhancing local development workflows with specific considerations:
+WP-CLI Staging focuses on enhancing local development workflows with specific considerations/limitations in mind:
 
-- **Database-centric**: The tool currently supports only pulling the database from the production environment; it does not push changes from staging to production.
+- **Database-centric**: The tool currently supports only pulling the database from the production environment; it does not push changes from staging to production. This probably will be added through future iterations. 
 - **Cloudways Optimized**: While designed with Cloudways hosting in mind, the plugin settings may require adjustments to work seamlessly with other hosting providers.
 - **SSH Requirement**: The remote host must be accessible via SSH to enable secure communication and data transfer.
 - **Local (By WP Engine) Optimized**: While designed with Local by WP Engine in mind, the plugin should work with other local WordPress management systems. 
 
 ## Inspiration
 
-The development of WPCLI Staging was inspired by our use of WP Engine's Local for managing local WordPress instances and Cloudways for hosting. Recognizing the strengths of both platforms and their support for WP-CLI, the plugin aimed to bridge the gap between local and production environments. This helped quickly sync live sites with local clones. 
+The development of WPCLI Staging was inspired by our use of WP Engine's [Local WP](https://localwp.com/) for managing local WordPress instances and [Cloudways](Cloudways) for hosting. Recognizing the strengths of both platforms and their support for WP-CLI, the plugin aimed to bridge the gap between local and production environments. This helped quickly sync live sites with local clones. 
 
 ## Disclaimer and Safety
 
