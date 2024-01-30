@@ -118,7 +118,7 @@ If you find WP-CLI Staging helpful, here's how you can support the asset's devel
     
     -  [Star WPCLI Staging](https://github.com/atwellpub/wpcli-local-staging)
 
-- **Share Your Thoughts**: Found WPCLI Staging useful? Share your experience on Twitter and LinkedIn.
+- **Share Your Thoughts**: Found WP-CLI Staging useful? Share your experience on Twitter and LinkedIn.
 
    - Twitter: Tag [@atwellpub](https://twitter.com/atwellpub) and use the hashtag #WPCLIStaging to share how the plugin has helped you or your team.
 
