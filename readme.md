@@ -1,6 +1,6 @@
-# WP-CLI Staging for WordPress
+# WP-CLI Staging
 
-## Introduction to WP-CLI Staging
+## About 
 
 WP-CLI Staging plugin extends WP-CLI with staging management tools for a local WordPress instance. Currently, it provides the ability to import and synchronize remote database (production) into a local database (staging) as well as provides other utilities such as quick backups, restorations, rollbacks and rollforwards.
 
