@@ -124,6 +124,6 @@ If you find WP-CLI Staging helpful, here's how you can support the asset's devel
 
    - LinkedIn: Connect and share your thoughts with [Hudson Atwell](https://www.linkedin.com/in/hudsonatwell/) on LinkedIn. 
 
-- **Hire from Codeable**: [Codeable.io](https://codeable.io/?ref=4yHGV) offers pre-vetted senior WordPress experts for any type of WordPress project. None too big or too small.
+- **Hire from Codeable**: [Codeable.io](https://codeable.io/?ref=4yHGV) offers pre-vetted senior WordPress experts.
 
 Your feedback, support, and contributions are greatly appreciated. 
