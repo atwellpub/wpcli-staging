@@ -82,8 +82,6 @@ Once the plugin has been installed, activated, and setup, the command line with 
 
 If you encounter issues connecting to your local database while using WP-CLI Staging, a possible solution involves updating your `wp-config.php` file to specify the correct MySQL port used by Local.
 
-**Symptom**: The plugin fails to connect to the local database, preventing operations such as importing the database from executing successfully.
-
 **Solution**:
 1. Open your `wp-config.php` file located in the root of your WordPress installation.
 2. Locate the line that defines `DB_HOST`. It typically looks like this:
