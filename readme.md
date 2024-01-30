@@ -114,9 +114,11 @@ Your contributions and feedback are invaluable in making WP-CLI Staging a robust
 
 ## Connect and Share Your Support
 
-It's great to hear from the broader development community. If you find WPCLI Staging helpful, here's how you can support the asset's development:
+If you find WP-CLI Staging helpful, here's how you can support the asset's development:
 
-- **Star on GitHub**: If you appreciate this plugin, please give this repo a star on GitHub! It helps the plugin gain visibility and encourages everyone to help improve it. [Star WPCLI Staging](https://github.com/atwellpub/wpcli-local-staging)
+- **Star on GitHub**: If you appreciate this plugin, please give this repo a star on GitHub!
+    
+    -  [Star WPCLI Staging](https://github.com/atwellpub/wpcli-local-staging)
 
 - **Share Your Thoughts**: Found WPCLI Staging useful? Share your experience on Twitter and LinkedIn.
 
@@ -125,5 +127,5 @@ It's great to hear from the broader development community. If you find WPCLI Sta
    - LinkedIn: Connect and share your thoughts with [Hudson Atwell](https://www.linkedin.com/in/hudson-atwell/) on LinkedIn. 
 
 - **Hire from Codeable**: [Codeable.io](https://codeable.io/?ref=4yHGV) offers pre-vetted senior WordPress experts for any type of WordPress project. None too big or too small.
-- 
+
 Your feedback, support, and contributions are greatly appreciated. 
