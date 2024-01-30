@@ -104,16 +104,13 @@ This adjustment tells WordPress to connect to the MySQL server using the specifi
 
 ## How to Contribute
 
-WPCLI Staging is currently in a prototype phase, and I definitely welcome contributions from the community:
+WP-CLI Staging is currently in a prototype phase, and I definitely welcome contributions from the community:
 
 - **Report Issues**: Encounter a bug or have a suggestion? Open an issue on our [GitHub repository](https://github.com/atwellpub/wpcli-local-staging/issues).
 - **Fork and Pull Request**: Interested in adding a feature or fixing a bug? Fork the repository, make your changes, and submit a pull request.
 
-Your contributions and feedback are invaluable in making WPCLI Staging a robust tool for WordPress developers. Contributors whose merge requests are accepted will be listed as a contributor so please feel free to participate.
+Your contributions and feedback are invaluable in making WP-CLI Staging a robust tool for WordPress developers. Contributors whose merge requests are accepted will be listed as a contributor so please feel free to participate.
 
-Got it! Here's how you can include that call to action in your `readme.md`:
-
----
 
 ## Connect and Share Your Support
 
@@ -127,5 +124,6 @@ It's great to hear from the broader development community. If you find WPCLI Sta
 
    - LinkedIn: Connect and share your thoughts with [Hudson Atwell](https://www.linkedin.com/in/hudson-atwell/) on LinkedIn. 
 
-- **Hire from Codeable**: [Codeable.io](https://codeable.io/?ref=4yHGV) offers pre-vetted senior WordPress experts for any type of WordPress project. None too big or too small. 
+- **Hire from Codeable**: [Codeable.io](https://codeable.io/?ref=4yHGV) offers pre-vetted senior WordPress experts for any type of WordPress project. None too big or too small.
+- 
 Your feedback, support, and contributions are greatly appreciated. 
