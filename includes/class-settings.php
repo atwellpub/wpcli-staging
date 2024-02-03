@@ -111,13 +111,13 @@ class WPCLI_Local_Staging_Settings {
                             <p class="description"><?php _e('The file system path to your SSH private key. For permissions reasons, this needs to be inside your site directory in Local.', 'wpcli-local-staging'); ?></p>
                         </td>
                     </tr>
-                    <tr valign="top">
+                    <!--<tr valign="top">
                         <th scope="row"><?php _e('MySQL Port for Flywheel', 'wpcli-local-staging'); ?></th>
                         <td>
                             <input type="text" name="<?php echo self::$prefix; ?>flywheel_mysql_port" value="<?php echo esc_attr($settings['flywheel_mysql_port']); ?>" />
                             <p class="description"><?php _e('The MySQL port used by Flywheel. The default is 10023. You can find this by navigating to the Database tab inside Local.', 'wpcli-local-staging'); ?></p>
                         </td>
-                    </tr>
+                    </tr>-->
                 </table>
 				<?php submit_button(__('Save Changes', 'wpcli-local-staging')); ?>
             </form>
