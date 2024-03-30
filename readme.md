@@ -49,6 +49,13 @@ For more information and documentation, visit the [WP-CLI Official Website](http
 
 ## Setup
 
+## For Windows Users on Local by WPEngine
+
+We found that the terminal setting might need to be set to Git Bash for the correct WP CLI path to load. 
+
+![image](https://github.com/atwellpub/wpcli-staging/assets/2002207/dc0d72ea-004c-4b8c-a71c-0079525263ae)
+
+
 ### Downloading the Plugin
 
 To get started with WPCLI Staging, clone the repository from GitHub into your WordPress plugins directory:
