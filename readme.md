@@ -82,7 +82,8 @@ Once the plugin has been installed, activated, and setup, the command line with 
 
 ```
 Warning: No WordPress installation found. If the command 'staging' is in a plugin or theme, pass --path=`path/to/wordpress`.
-Error: 'staging' is not a registered wp command. See 'wp help' for available commands.```
+Error: 'staging' is not a registered wp command. See 'wp help' for available commands.
+```
 
 We found that the terminal setting might need to be set to Git Bash for the correct WP CLI path to load. 
 
