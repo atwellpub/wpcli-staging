@@ -1,7 +1,7 @@
 <?php
 
 if (!defined('IMPORT_DEBUG'))
-	define( 'IMPORT_DEBUG', true );
+	define( 'IMPORT_DEBUG', false );
 
 
 /**
@@ -265,75 +265,89 @@ class WPCLI_Local_Staging extends WP_CLI_Command {
 	 * @when after_wp_load
 	 */
 	public function import() {
-		$timestamp = date('Y-m-d-H-i');
-		$directories = $this->get_directories();
-		$file = "backup_$timestamp.sql";
 
-		$settings = WPCLI_Local_Staging_Settings::get_settings();
+        $directories = $this->get_directories();
+        $timestamp = date('Y-m-d-H-i-s');
+        $randomPart = substr(md5(rand()), 0, 7); // Generate a random 7-character string
+        $fileName = "backup_{$timestamp}_{$randomPart}";
+        $sqlFileName = "{$fileName}.sql";
+
+
+        $settings = WPCLI_Local_Staging_Settings::get_settings();
 
 		// Inform the user that the remote export is starting
 		WP_CLI::log('Initiating remote database export...');
 
 		// Remote ssh and generate backup using settings from the $settings array
 		$ssh_command = sprintf(
-			'ssh -i %s %s@%s -p %d "cd %s && wp db export backup.sql"',
+			'ssh -i %s %s@%s -p %d "cd %s && wp db export '.$fileName.'"',
 			escapeshellarg($settings['cloudways_private_key_path']),
 			escapeshellarg($settings['cloudways_ssh_username']),
 			escapeshellarg($settings['cloudways_ssh_ip']),
 			intval($settings['cloudways_ssh_port']),
-			escapeshellarg($settings['cloudways_wordpress_path'])
+			escapeshellarg($settings['cloudways_wordpress_path']),
+            escapeshellarg($sqlFileName),
+            escapeshellarg($sqlFileName),
+            escapeshellarg($fileName)
 		);
 
 		exec($ssh_command, $output, $return_var);
 
 		// Check if SSH command was successful and handle the result accordingly
 		if ($return_var === 0) {
-			WP_CLI::log('Production database backup generated on the remote server. Downloading the backup...');
+            WP_CLI::log('Production database backup generated on the remote server.');
 		} else {
 			WP_CLI::error('Failed to generate remote database backup. Please check your SSH settings and remote server configuration.');
 			return; // Exit the function if SSH command failed
 		}
 
-		// SCP command to download the backup file using settings from the $settings array
-		$scp_command = sprintf(
-			'scp -i %s -P %d %s@%s:%sbackup.sql %s',
-			escapeshellarg($settings['cloudways_private_key_path']),
-			intval($settings['cloudways_ssh_port']),
-			escapeshellarg($settings['cloudways_ssh_username']),
-			escapeshellarg($settings['cloudways_ssh_ip']),
-			rtrim(escapeshellarg($settings['cloudways_wordpress_path']), '/'),
-			escapeshellarg($directories['import'] . 'production-backup.sql')
-		);
+        // Use curl to download the backup file
+        $localFilePath = escapeshellarg($directories['import'] . 'production-backup.sql');
+        $remoteFileUrl = escapeshellarg("https://".rtrim($settings['remote_domain'],'/') . '/'. $fileName); // Adjust according to your domain/IP and secure access method
 
-		exec($scp_command, $scp_output, $return_var);
+        $curl_command = "curl -o $localFilePath --url $remoteFileUrl";
 
-		// Check if SCP was successful and handle the result accordingly
-		if ($return_var === 0) {
-			WP_CLI::log('Production database successfully downloaded locally.');
-		} else {
-			WP_CLI::error('Failed to download the backup. Please check your SCP settings and remote server configuration.');
-			return; // Exit the function if SCP command failed
-		}
+        WP_CLI::log("Beginning download of remote backup file: $curl_command");
+
+        exec($curl_command, $curl_output, $return_var);
+
+        if ($return_var === 0) {
+            WP_CLI::log('Production database successfully downloaded locally.');
+
+            // Delete the remote backup file after successful download
+            $delete_command = sprintf(
+                'ssh -i %s %s@%s -p %d "rm -f %s"',
+                escapeshellarg($settings['cloudways_private_key_path']),
+                escapeshellarg($settings['cloudways_ssh_username']),
+                escapeshellarg($settings['cloudways_ssh_ip']),
+                intval($settings['cloudways_ssh_port']),
+                escapeshellarg($fileName)
+            );
+            exec($delete_command);
+            WP_CLI::log('Remote backup file deleted.');
+
+        } else {
+            WP_CLI::error('Failed to download the backup.');
+            return;
+        }
 
 		// Create a backup before importing
-		$settings['backup_file'] = $this->create_local_backup(false, $settings);
-		if (!$settings['backup_file']) {
+		$settings['rollback_point'] = $this->create_local_backup(false, $settings);
+		if (!$settings['rollback_point']) {
 			return; // Stop execution if backup fails
 		}
 
-		exec('wp option update wpcli_staging-rollback_point ' . escapeshellarg($settings['backup_file']));
 		WP_CLI::log("Setting backup as a rollback point: " . $settings['backup_file']);
 
 		// Use the perform_db_import method to import the database
 		$path_to_import_file = $directories['import'].'production-backup.sql';
 		$this->perform_db_import($path_to_import_file , $settings['remote_domain']);
 
-
 		// Search and replace URLs using settings from the $settings array
 		$search_replace_command = 'wp search-replace "'. $settings['remote_domain'].'" "'.$settings['local_domain'].'" --all-tables';
 		WP_CLI::debug($search_replace_command);
 		exec($search_replace_command);
-		WP_CLI::success("Domains replaced in database.");
+		WP_CLI::success("Domains replaced.");
 
 		// Automatically activate the wpcli-staging plugin
 		$plugin_activation_command = "wp plugin activate wpcli-staging";
@@ -341,7 +355,7 @@ class WPCLI_Local_Staging extends WP_CLI_Command {
 		exec($plugin_activation_command);
 		WP_CLI::success("WP-CLI Staging plugin activated.");
 
-		// Resave the plugin settings
+		// Resave the plugin settings]
 		WPCLI_Local_Staging_Settings::resave_settings($settings);
 		WP_CLI::success("Plugin settings resaved successfully.");
 
